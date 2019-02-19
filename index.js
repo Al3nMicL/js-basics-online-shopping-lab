@@ -9,8 +9,19 @@ function setCart(c) {
   return cart;
 }
 
+// Task 1 : addToCart function
 function addToCart(item) {
- // write your code here
+ 
+ let makePrice = () => Math.floor(Math.random() * 100);
+
+ let newObj = new Object;
+ let tempObj = Object.assign(
+     	newObj,
+      { itemName : item, itemPrice : makePrice() }
+     );
+ cart.push(newObj);
+  
+ return `${item} has been added to your cart.`;
 }
 
 function viewCart() {
