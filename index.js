@@ -62,7 +62,10 @@ function viewCart() {
 }
 
 function total() {
-  // write your code here
+ // use reduce! watch -> https://youtu.be/Wl98eZpkp-c?t=230
+ let cartTotal = cart.reduce((sum, product) => sum + product.itemPrice, 0);
+ return cartTotal;
+
 }
 
 function removeFromCart(item) {
