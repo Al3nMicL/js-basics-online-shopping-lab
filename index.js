@@ -9,7 +9,6 @@ function setCart(c) {
   return cart;
 }
 
-// Task 1 : addToCart function
 function addToCart(item) {
 
 	let makePrice = () => Math.floor(Math.random() * 100); // assigns a random price 
@@ -69,7 +68,19 @@ function total() {
 }
 
 function removeFromCart(item) {
-  // write your code here
+ 
+ let found = cart.find(product => product.itemName == item);
+ if (found) {
+ 	// use filter! see -> https://stackoverflow.com/a/10024926
+  cart = cart.filter(product => product.itemName != item);
+ 	return cart;
+
+ } else {
+
+ 	return "That item is not in your cart.";
+
+ }
+
 }
 
 function placeOrder(cardNumber) {
