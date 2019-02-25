@@ -84,5 +84,22 @@ function removeFromCart(item) {
 }
 
 function placeOrder(cardNumber) {
-  // write your code here
+ 
+ let card = cardNumber;
+ let regex1 = /^\d*$/; // regex for 1 or more numbers
+ let notifyInvalid = "Sorry, we don't have a credit card on file for you.";
+ // test to see if there are numbers provided in card
+ if (regex1.test(card)) { 
+ 	// add up the total of the cart
+	let cartTotal = cart.reduce((sum, product) => sum + product.itemPrice, 0);
+	// empty the cart
+	while (cart.length > 0) { cart.pop(); }
+	// provide transaction summary
+	return `Your total cost is $${cartTotal}, which will be charged to the card ${card}.`	
+
+ } else {
+ 	// notify invalid form of payment
+ 	return notifyInvalid;
+ }
+
 }
